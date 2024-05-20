@@ -13,6 +13,7 @@ public class CharacterController : MonoBehaviour
     Vector3 scale;
     float moveInput;
 
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
