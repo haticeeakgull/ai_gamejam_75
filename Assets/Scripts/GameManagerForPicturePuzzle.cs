@@ -17,6 +17,8 @@ public class GameManagerForPicturePuzzle : MonoBehaviour
     public TMP_Text countdownText;
     private float currentTime;
     private bool gameStarted = false; // Oyunun baþladýðýný kontrol etmek için flag
+    public GameObject completeImage;
+    public GameObject gameOverImage;
 
     private void CreateGamePieces(float gapThickness)
     {
@@ -78,16 +80,16 @@ public class GameManagerForPicturePuzzle : MonoBehaviour
         {
             if (CheckCompletion()) // Kazanma
             {
-                SceneManager.LoadScene(2); // Kazanma ekraný sahnesini yükle
+                completeImage.SetActive(true);
             }
             else // Kaybetme
             {
-                SceneManager.LoadScene(3); // Kaybetme ekraný sahnesini yükle
+                gameOverImage.SetActive(true); // Kaybetme ekraný sahnesini yükle
             }
         }
         else if (CheckCompletion())
         {
-            SceneManager.LoadScene(2); // Kazanma ekraný sahnesini yükle
+            completeImage.SetActive(true);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -171,5 +173,15 @@ public class GameManagerForPicturePuzzle : MonoBehaviour
                 count++;
             }
         }
+    }
+    public void Button()
+    {
+        SceneManager.LoadScene("FinalScene"); // Kazanma ekraný sahnesini yükle
+
+    }
+    public void ReloadCurrentScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }

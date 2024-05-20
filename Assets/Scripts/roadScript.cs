@@ -7,8 +7,7 @@ public class roadScript : MonoBehaviour
     float[] rotation = { 0,90, 180, 270 };
     
     public float[] correctRotation;
-    [SerializeField]
-    bool isPlaced = false;
+    public bool isPlaced = false;
 
     int possibleRots = 1;
 
@@ -28,14 +27,14 @@ public class roadScript : MonoBehaviour
         {
             if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1])
             {
-                isPlaced = true;
+                //isPlaced = true;
                 manager.CorrectMove();
             }
             else
             {
                 if (transform.eulerAngles.z == correctRotation[0] )
                 {
-                    isPlaced = true;
+                    //isPlaced = true;
                     manager.CorrectMove();
                 }
 
@@ -51,31 +50,33 @@ public class roadScript : MonoBehaviour
 
         if (possibleRots > 1)
         {
-            if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1] && isPlaced == false)
+            if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1])// && isPlaced == false)
             {
-                isPlaced = true;
+                //isPlaced = true;
                 manager.CorrectMove();
             }
+            /*
             else if (isPlaced == true)
             {
-                isPlaced = false;
+                //isPlaced = false;
                 manager.WrongMove();
             }
-
+*/
         }
         else
         {
-            if (transform.eulerAngles.z == correctRotation[0]  && isPlaced == false)
+            if (transform.eulerAngles.z == correctRotation[0])//  && isPlaced == false)
             {
-                isPlaced = true;
+                //isPlaced = true;
                 manager.CorrectMove();
             }
+            /*
             else if (isPlaced == true)
             {
-                isPlaced = false;
+                //isPlaced = false;
                 manager.WrongMove();
             }
-
+            */
         }
 
             
